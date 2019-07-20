@@ -10,7 +10,7 @@
     <RepositoryUrl>https://github.com/pcartwright81/poloniex-dotnet.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>Poloniex Crypto Currency CoinBase BitCoin Ethereum LiteCoin AltCoin Exchange</PackageTags>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>PoloniexExchange</PackageId>
   </PropertyGroup>
 

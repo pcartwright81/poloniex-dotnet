@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Specialized;
+using System.Diagnostics;
 using System.Globalization;
 using System.Net.Http;
 using System.Security.Cryptography;
@@ -60,12 +61,13 @@ namespace Poloniex
 
 		private async Task<HttpRequestMessage> BuildAuthenticatedRequestAsync(PoloniexRequest request)
 		{
+			string nonce = ((long)(DateTime.UtcNow.ToUnixTimestamp() * 100000)).ToString();			
 			var requestMessage = new HttpRequestMessage(HttpMethod.Post, "https://poloniex.com/tradingApi")
 			{
 				Content = new NameValueCollection
 				{
 					{ "command", request.Command },
-					{ "nonce", (DateTime.UtcNow.ToUnixTimestamp() * 100000).ToString(CultureInfo.InvariantCulture) },
+					{ "nonce",  nonce },
 					request.Parameters
 				}.ToFormUrlEncodedContent()
 			};
